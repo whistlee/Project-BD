@@ -28,4 +28,4 @@ podzielone funkcjonalnie na trzy połączone ze sobą działy:
 Diagram ERD przedstawiony jest na poniższej ilustracji (rys.1) i pokazuje wszystkie encje
 programu wraz z realizacją połączeń między nimi oraz zawartymi w encjach kluczami.
 
-![Schemat ERD](https://whistlee.github.com/Project-BD/README-IMAGES/Img1.png)
+![Schemat ERD](https://github.com/whistlee/Project-BD/README-IMAGES/Img1.png)
