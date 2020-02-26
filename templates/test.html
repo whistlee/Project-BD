@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Application Home Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+    <link rel="stylesheet" href="static/css/yrmp.css">
+    <script
+            src="http://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous">
+    </script>
+</head>
+<body>
+<div class="container">
+    <h1 class="banner">People Demo Application</h1>
+    <input id="url_tory_id" type="hidden" value="{{ numer }}"/>
+    <div class="section editor">
+        <label for="nazwa">Nazwa
+            <input id="nazwa" type="text"/>
+        </label>
+        <br/>
+        <label for="dlugosc">Dlugosc
+            <input id="dlugosc" type="text"/>
+        </label>
+        <label for="numer">Tory
+            <input id="numer" type="text"/>
+        </label>
+        <br/>
+        <button id="create">Create</button>
+        <button id="delete">Delete</button>
+        <button id="reset">Reset</button>
+    </div>
+    <div class="tory">
+        <table class="table table-striped">
+            <caption>Tory</caption>
+            <thead>
+            <tr>
+                <th>nazwa</th>
+                <th>numer</th>
+                <th>dlugosc</th>
+                <th>zajetosc</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <div class="edycja_wagonow">
+        <label for="nazwa_bocznicy">Nazwa bocznicy
+            <input id="nazwa_bocznicy" type="text"/>
+        </label>
+        <label for="numer_toru">Numer toru
+            <input id="numer_toru" type="text"/>
+        </label>
+        <label for="numer_wagonu">Numer wagonu
+            <input id="numer_wagonu" type="text"/>
+        </label>
+        <br/>
+        <button id="stworz_wagon">Create</button>
+        <button id="aktualizuj_wagon">Update</button>
+        <button id="usun_wagon">Delete</button>
+        <button id="reset_wagon">Reset</button>
+    </div>
+    <div class="wagony">
+        <table>
+            <caption>Wagony</caption>
+            <thead>
+            <tr>
+                <th>nazwa bocznicy</th>
+                <th>numer toru</th>
+                <th>numer_wagonu</th>
+                <th>czas_wjazdu</th>
+                <th>dlugosc</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <div class="error">
+    </div>
+</div>
+</body>
+<script type="module">
+    // Give the imported MVC components a namespace
+    import * as MVC from "/static/js/tory.js";
+    import * as MVC1 from "/static/js/wagony.js"
+    // Create an intentional global variable referencing the import
+    window.mvc = MVC;
+    window.mvc = MVC1;
+</script>
+</html>

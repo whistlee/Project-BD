@@ -1,0 +1,34 @@
+{% extends "home.html" %}
+
+{% block content %}
+    <div class="span9">
+        <input id="url_bocznica_id" type="hidden" value="{{ nazwa }}"/>
+        <div class="col-xs-6">
+            <label for="nazwa">nazwa</label>
+            <input class="form-control" id="nazwa" type="text">
+        </div>
+        <button type="button" class="btn btn-secondary btn-lg" id="create">Create</button>
+        <button type="button" class="btn btn-secondary btn-lg" id="delete">Delete</button>
+        <button type="button" class="btn btn-secondary btn-lg" id="reset">Reset</button>
+        </br>
+        </br>
+        <div class="flex-auto">
+            <table class="table table-striped">
+                <caption>Bocznice</caption>
+                <thead>
+                <tr>
+                    <th>Nazwa bocznicy</th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="error">
+    </div>
+
+{% endblock %}
+{% block javascript %}
+    <script src="static/js/bocznica.js"></script>
+{% endblock %}

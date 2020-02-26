@@ -1,0 +1,1198 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is the swagger file that goes with our server code",
+    "version": "1.0.0",
+    "title": "Swagger REST"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "basePath": "/api",
+  "paths": {
+    "/bocznica": {
+      "get": {
+        "operationId": "bocznica.read_all",
+        "tags": [
+          "Bocznica"
+        ],
+        "summary": "Read entire list of bocznica",
+        "description": "Read the list of bocznica",
+        "parameters": [
+          {
+            "name": "length",
+            "in": "query",
+            "type": "integer",
+            "description": "Number of track to get from scores",
+            "required": false
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "type": "integer",
+            "description": "Offset from beginning of list",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful read bocznica list operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "properties": {
+                  "nazwa": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "bocznica.create",
+        "tags": [
+          "Bocznica"
+        ],
+        "summary": "Create a bocznica and add to bocznica list",
+        "description": "Create a new bocznica",
+        "parameters": [
+          {
+            "name": "bocznica",
+            "in": "body",
+            "description": "Bocznica to create",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "nazwa": {
+                  "type": "string",
+                  "description": "Bocznica name"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Succesfully created bocznica in list"
+          }
+        }
+      }
+    },
+    "/bocznica/{nazwa}": {
+      "get": {
+        "operationId": "bocznica.read_one",
+        "tags": [
+          "Bocznica"
+        ],
+        "summary": "Read one bocznica from the bocznica list",
+        "description": "Read one bocznica from the bocznica list",
+        "parameters": [
+          {
+            "name": "nazwa",
+            "in": "path",
+            "description": "bocznica id to get from bocznica list",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully read bocznica from bocznica list",
+            "schema": {
+              "properties": {
+                "nazwa": {
+                  "type": "string",
+                  "description": "Bocznica ID"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "operationId": "bocznica.update",
+        "tags": [
+          "Bocznica"
+        ],
+        "summary": "Update a bocznica in the bocznica list",
+        "description": "Update a bocznica in the bocznica list",
+        "parameters": [
+          {
+            "name": "nazwa",
+            "in": "path",
+            "description": "Name of bocznica to update",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "bocznica",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "nazwa": {
+                  "type": "string",
+                  "description": "Bocznica Name"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully update track in tracks list"
+          }
+        }
+      },
+      "delete": {
+        "operationId": "bocznica.delete",
+        "tags": [
+          "Bocznica"
+        ],
+        "summary": "Delete a bocznica from the bocznica list",
+        "description": "Delete a bocznica",
+        "parameters": [
+          {
+            "name": "nazwa",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfuly deleted a bocznica from track list"
+          }
+        }
+      }
+    },
+    "/tory": {
+      "get": {
+        "operationId": "tory.read_all",
+        "tags": [
+          "Tory"
+        ],
+        "summary": "Read entire list of tracks",
+        "description": "Read the list of tracks",
+        "parameters": [
+          {
+            "name": "length",
+            "in": "query",
+            "type": "integer",
+            "description": "Number of track to get from scores",
+            "required": false
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "type": "integer",
+            "description": "Offset from beginning of list",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful read tracks list operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "properties": {
+                  "nazwa": {
+                    "type": "string"
+                  },
+                  "dlugosc": {
+                    "type": "string"
+                  },
+                  "numer": {
+                    "type": "string"
+                  },
+                  "zajetosc": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "tory.create",
+        "tags": [
+          "Tory"
+        ],
+        "summary": "Create a track and add to tracks list",
+        "description": "Create a new track",
+        "parameters": [
+          {
+            "name": "tory",
+            "in": "body",
+            "description": "Track to create",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "nazwa": {
+                  "type": "string",
+                  "description": "Bocznica name"
+                },
+                "dlugosc": {
+                  "type": "string",
+                  "description": "Length of track"
+                },
+                "numer": {
+                  "type": "string",
+                  "description": "Number of track"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Succesfully created track in list"
+          }
+        }
+      }
+    },
+    "/tory/{numer}": {
+      "get": {
+        "operationId": "tory.read_one",
+        "tags": [
+          "Tory"
+        ],
+        "summary": "Read one track from the tracks list",
+        "description": "Read one track from the tracks list",
+        "parameters": [
+          {
+            "name": "numer",
+            "in": "path",
+            "description": "Track id to get from track list",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully read track from tracks list",
+            "schema": {
+              "properties": {
+                "nazwa": {
+                  "type": "string",
+                  "description": "Bocznica ID"
+                },
+                "dlugosc": {
+                  "type": "string",
+                  "description": "Length of track"
+                },
+                "numer": {
+                  "type": "string",
+                  "description": "Number of track"
+                },
+                "zajetosc": {
+                  "type": "string",
+                  "description": "Zajetosc of track"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "operationId": "tory.update",
+        "tags": [
+          "Tory"
+        ],
+        "summary": "Update a track in the tracks list",
+        "description": "Update a track in the tracks list",
+        "parameters": [
+          {
+            "name": "numer",
+            "in": "path",
+            "description": "Id of track to update",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "track",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "b_id": {
+                  "type": "integer",
+                  "description": "Bocznica ID"
+                },
+                "dlugosc": {
+                  "type": "integer",
+                  "description": "Length of track"
+                },
+                "numer": {
+                  "type": "integer",
+                  "description": "Number of track"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully update track in tracks list"
+          }
+        }
+      },
+      "delete": {
+        "operationId": "tory.delete",
+        "tags": [
+          "Tory"
+        ],
+        "summary": "Delete a track from the track list",
+        "description": "Delete a track",
+        "parameters": [
+          {
+            "name": "numer",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfuly deleted a track from track list"
+          }
+        }
+      }
+    },
+    "/wagony": {
+      "get": {
+        "operationId": "wagony.read_all",
+        "tags": [
+          "Wagony"
+        ],
+        "summary": "Read entire list of wagony",
+        "description": "Read the list of wagony",
+        "parameters": [
+          {
+            "name": "length",
+            "in": "query",
+            "type": "integer",
+            "description": "Number of wagony to get from scores",
+            "required": false
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "type": "integer",
+            "description": "Offset from beginning of list",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful read wagony list operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "properties": {
+                  "nazwa": {
+                    "type": "string"
+                  },
+                  "numer": {
+                    "type": "string"
+                  },
+                  "numer_wagonu": {
+                    "type": "string"
+                  },
+                  "dlugosc": {
+                    "type": "string"
+                  },
+                  "czas_wjazdu": {
+                    "type": "string"
+                  },
+                  "czas_wyjazdu": {
+                    "type": "string"
+                  },
+                  "czas_na_torze": {
+                    "type": "string"
+                  },
+                  "opuscil_tor": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "wagony.create",
+        "tags": [
+          "Wagony"
+        ],
+        "summary": "Create a wagony and add to wagony list",
+        "description": "Create a new wagony",
+        "parameters": [
+          {
+            "name": "wagon",
+            "in": "body",
+            "description": "Wagon to create",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "nazwa": {
+                  "type": "string",
+                  "description": "Nazwa bocznicy"
+                },
+                "numer": {
+                  "type": "string",
+                  "description": "Track number"
+                },
+                "numer_wagonu": {
+                  "type": "string",
+                  "description": "Number of wagon"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Succesfully created track in list"
+          }
+        }
+      }
+    },
+    "/wagony/{numer_wagonu}": {
+      "get": {
+        "operationId": "wagony.read_one",
+        "tags": [
+          "Wagony"
+        ],
+        "summary": "Read one wagony from the wagony list",
+        "description": "Read one wagony from the wagony list",
+        "parameters": [
+          {
+            "name": "numer_wagonu",
+            "in": "path",
+            "description": "wagony id to get from track list",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully read wagony from tracks list",
+            "schema": {
+              "properties": {
+                "w_id": {
+                  "type": "integer",
+                  "description": "Wagon ID"
+                },
+                "t_id": {
+                  "type": "integer",
+                  "description": "Track ID"
+                },
+                "numer_wagonu": {
+                  "type": "integer",
+                  "description": "Number of wagon"
+                },
+                "czas_wjazdu": {
+                  "type": "string",
+                  "description": "Time of start"
+                },
+                "czas_wyjazdu": {
+                  "type": "string",
+                  "description": "Time of end"
+                },
+                "czas_na_torze": {
+                  "type": "string",
+                  "description": "Duration time"
+                },
+                "opuscil_tor": {
+                  "type": "boolean",
+                  "description": "Left track boolean"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "operationId": "wagony.update",
+        "tags": [
+          "Wagony"
+        ],
+        "summary": "Update a wagony in the wagony list",
+        "description": "Update a wagony in the wagony list",
+        "parameters": [
+          {
+            "name": "numer_wagonu",
+            "in": "path",
+            "description": "Id of wagony to update",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "wagon",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "w_id": {
+                  "type": "integer",
+                  "description": "Wagon ID"
+                },
+                "t_id": {
+                  "type": "integer",
+                  "description": "Track ID"
+                },
+                "numer_wagonu": {
+                  "type": "integer",
+                  "description": "Number of wagon"
+                },
+                "czas_wjazdu": {
+                  "type": "string",
+                  "description": "Time of start"
+                },
+                "czas_wyjazdu": {
+                  "type": "string",
+                  "description": "Time of end"
+                },
+                "czas_na_torze": {
+                  "type": "string",
+                  "description": "Duration time"
+                },
+                "opuscil_tor": {
+                  "type": "boolean",
+                  "description": "Left track boolean"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully update track in tracks list"
+          }
+        }
+      },
+      "delete": {
+        "operationId": "wagony.delete",
+        "tags": [
+          "Wagony"
+        ],
+        "summary": "Delete a wagony from the wagony list",
+        "description": "Delete a wagony",
+        "parameters": [
+          {
+            "name": "numer_wagonu",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfuly deleted a wagony from track list"
+          }
+        }
+      }
+    },
+    "/wagony/opusc-tor/{numer_wagonu}": {
+      "delete": {
+        "operationId": "wagony.opusc_tor",
+        "tags": [
+          "Wagony"
+        ],
+        "summary": "Delete wagon from track",
+        "description": "Delete a wagon",
+        "parameters": [
+          {
+            "name": "numer_wagonu",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully deleted a wagon from track"
+          }
+        }
+      }
+    },
+    "/wagony-bazowe": {
+      "get": {
+        "operationId": "wagony_bazowe.read_all",
+        "tags": [
+          "Wagony_Bazowe"
+        ],
+        "summary": "Read entire list of wagony",
+        "description": "Read the list of wagony",
+        "parameters": [
+          {
+            "name": "length",
+            "in": "query",
+            "type": "integer",
+            "description": "Number of wagony to get from scores",
+            "required": false
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "type": "integer",
+            "description": "Offset from beginning of list",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful read wagony list operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "properties": {
+                  "nazwa": {
+                    "type": "string"
+                  },
+                  "nr_startowy": {
+                    "type": "string"
+                  },
+                  "nr_koncowy": {
+                    "type": "string"
+                  },
+                  "dlugosc": {
+                    "type": "string"
+                  },
+                  "wlasciciel": {
+                    "type": "string"
+                  },
+                  "typ_wagonu": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "wagony_bazowe.create",
+        "tags": [
+          "Wagony_Bazowe"
+        ],
+        "summary": "Create a wagony and add to wagony list",
+        "description": "Create a new wagony",
+        "parameters": [
+          {
+            "name": "wagon_bazowy",
+            "in": "body",
+            "description": "Wagon to create",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "nazwa": {
+                  "type": "string",
+                  "description": "Nazwa bocznicy"
+                },
+                "nr_startowy": {
+                  "type": "string",
+                  "description": "Track number"
+                },
+                "nr_koncowy": {
+                  "type": "string",
+                  "description": "Number of wagon"
+                },
+                "dlugosc": {
+                  "type": "string",
+                  "description": "Number of wagon"
+                },
+                "wlasciciel": {
+                  "type": "string",
+                  "description": "Number of wagon"
+                },
+                "typ_wagonu": {
+                  "type": "string",
+                  "description": "Number of wagon"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Succesfully created track in list"
+          }
+        }
+      }
+    },
+    "/wagony-bazowe/{nazwa}": {
+      "get": {
+        "operationId": "wagony_bazowe.read_one",
+        "tags": [
+          "Wagony_Bazowe"
+        ],
+        "summary": "Read one wagony from the wagony list",
+        "description": "Read one wagony from the wagony list",
+        "parameters": [
+          {
+            "name": "nazwa",
+            "in": "path",
+            "description": "wagony id to get from track list",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully read wagony from tracks list",
+            "schema": {
+              "properties": {
+                "nazwa": {
+                  "type": "string",
+                  "description": "Wagon name"
+                },
+                "nr_startowy": {
+                  "type": "string",
+                  "description": "Wagon nr start"
+                },
+                "nr_koncowy": {
+                  "type": "string",
+                  "description": "nr_koncowy"
+                },
+                "dlugosc": {
+                  "type": "string",
+                  "description": "dlugosc"
+                },
+                "wlasciciel": {
+                  "type": "string",
+                  "description": "wlasciciel"
+                },
+                "typ_wagonu": {
+                  "type": "string",
+                  "description": "typ_wagonu"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "operationId": "wagony_bazowe.update",
+        "tags": [
+          "Wagony_Bazowe"
+        ],
+        "summary": "Update a wagony in the wagony list",
+        "description": "Update a wagony in the wagony list",
+        "parameters": [
+          {
+            "name": "nazwa",
+            "in": "path",
+            "description": "Id of wagony to update",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "wagon_bazowy",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "nazwa": {
+                  "type": "string",
+                  "description": "Wagon ID"
+                },
+                "nr_startowy": {
+                  "type": "string",
+                  "description": "nr_startowy"
+                },
+                "nr_koncowy": {
+                  "type": "string",
+                  "description": "nr_koncowy"
+                },
+                "dlugosc": {
+                  "type": "string",
+                  "description": "dlugosc"
+                },
+                "wlasciciel": {
+                  "type": "string",
+                  "description": "wlasciciel"
+                },
+                "typ_wagonu": {
+                  "type": "string",
+                  "description": "typ_wagonu"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully update track in tracks list"
+          }
+        }
+      },
+      "delete": {
+        "operationId": "wagony_bazowe.delete",
+        "tags": [
+          "Wagony Bazowe"
+        ],
+        "summary": "Delete a wagony from the wagony list",
+        "description": "Delete a wagony",
+        "parameters": [
+          {
+            "name": "nazwa",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfuly deleted a wagony from track list"
+          }
+        }
+      }
+    },
+    "/firmy": {
+      "get": {
+        "operationId": "firmy.read_all",
+        "tags": [
+          "Firmy"
+        ],
+        "summary": "Read entire list of firmy",
+        "description": "Read the list of firmy",
+        "parameters": [
+          {
+            "name": "length",
+            "in": "query",
+            "type": "integer",
+            "description": "Number of firmy to get from scores",
+            "required": false
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "type": "integer",
+            "description": "Offset from beginning of list",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful read firmy list operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "properties": {
+                  "nazwa": {
+                    "type": "string"
+                  },
+                  "telefon": {
+                    "type": "string"
+                  },
+                  "NIP": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "adres": {
+                    "type": "string"
+                  },
+                  "miasto": {
+                    "type": "string"
+                  },
+                  "kraj": {
+                    "type": "string"
+                  },
+                  "kod_pocztowy": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "firmy.create",
+        "tags": [
+          "Firmy"
+        ],
+        "summary": "Create a firma and add to firmy list",
+        "description": "Create a new firma",
+        "parameters": [
+          {
+            "name": "firmy",
+            "in": "body",
+            "description": "Firma to create",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "nazwa": {
+                  "type": "string"
+                },
+                "telefon": {
+                  "type": "string"
+                },
+                "NIP": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "adres": {
+                  "type": "string"
+                },
+                "miasto": {
+                  "type": "string"
+                },
+                "kraj": {
+                  "type": "string"
+                },
+                "kod_pocztowy": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Succesfully created firma in list"
+          }
+        }
+      }
+    },
+    "/firmy/{NIP}": {
+      "get": {
+        "operationId": "firmy.read_one",
+        "tags": [
+          "Firmy"
+        ],
+        "summary": "Read one firma from the firmy list",
+        "description": "Read one firma from the firmy list",
+        "parameters": [
+          {
+            "name": "NIP",
+            "in": "path",
+            "description": "Firma id to get from track list",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully read wagony from tracks list",
+            "schema": {
+              "properties": {
+                "nazwa": {
+                  "type": "string"
+                },
+                "telefon": {
+                  "type": "string"
+                },
+                "NIP": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "adres": {
+                  "type": "string"
+                },
+                "miasto": {
+                  "type": "string"
+                },
+                "kraj": {
+                  "type": "string"
+                },
+                "kod_pocztowy": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "operationId": "firmy.update",
+        "tags": [
+          "Firmy"
+        ],
+        "summary": "Update a firma in the firmy list",
+        "description": "Update a firma in the firmy list",
+        "parameters": [
+          {
+            "name": "NIP",
+            "in": "path",
+            "description": "Id of firma to update",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "wagon",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "nazwa": {
+                  "type": "string"
+                },
+                "telefon": {
+                  "type": "string"
+                },
+                "NIP": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "adres": {
+                  "type": "string"
+                },
+                "miasto": {
+                  "type": "string"
+                },
+                "kraj": {
+                  "type": "string"
+                },
+                "kod_pocztowy": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully update track in tracks list"
+          }
+        }
+      },
+      "delete": {
+        "operationId": "firmy.delete",
+        "tags": [
+          "Firmy"
+        ],
+        "summary": "Delete a firma from the firmy list",
+        "description": "Delete a firma",
+        "parameters": [
+          {
+            "name": "NIP",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfuly deleted a firmy from track list"
+          }
+        }
+      }
+    },
+    "/firmy/firma-uzytkownika/{NIP}": {
+      "put": {
+        "operationId": "firmy.firma_uzytkownika",
+        "tags": [
+          "Firmy"
+        ],
+        "summary": "Update user firma",
+        "description": "Update a firma user",
+        "parameters": [
+          {
+            "name": "NIP",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully update a firma"
+          }
+        }
+      }
+    },
+    "/firmy/firma-wagonow/{NIP}": {
+      "put": {
+        "operationId": "firmy.firma_wagonow",
+        "tags": [
+          "Firmy"
+        ],
+        "summary": "Update wagons company",
+        "description": "Update wagons company",
+        "parameters": [
+          {
+            "name": "NIP",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully update a firma"
+          }
+        }
+      }
+    },
+    "/podsumowanie": {
+      "get": {
+        "operationId": "podsumowanie.read_all",
+        "tags": [
+          "Podsumowanie"
+        ],
+        "summary": "Read entire list of summary",
+        "description": "Read the list of summary",
+        "parameters": [
+          {
+            "name": "length",
+            "in": "query",
+            "type": "integer",
+            "description": "summary list",
+            "required": false
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "type": "integer",
+            "description": "Offset from beginning of list",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful read summary list operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "properties": {
+                  "firma": {
+                    "type": "string"
+                  },
+                  "czas_calkowity": {
+                    "type": "string"
+                  },
+                  "koszt": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

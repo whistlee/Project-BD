@@ -1,0 +1,48 @@
+{% extends "home.html" %}
+
+{% block content %}
+    <div class="span9">
+        <input id="url_wagony_id" type="hidden" value="{{ numer_wagonu }}"/>
+        <div class="col-xs-2">
+            <label for="nazwa">nazwa</label>
+            <input class="form-control" id="nazwa" type="text">
+        </div>
+        <div class="col-xs-3">
+            <label for="numer_wagonu">numer wagonu</label>
+            <input class="form-control" id="numer_wagonu" type="text">
+        </div>
+        <div class="col-xs-4">
+            <label for="numer">numer</label>
+            <input class="form-control" id="numer" type="text">
+        </div>
+        <button type="button" class="btn btn-secondary btn-lg" id="create">Create</button>
+        <button type="button" class="btn btn-secondary btn-lg" id="delete">Delete</button>
+        <button type="button" class="btn btn-secondary btn-lg" id="reset">Reset</button>
+        <button type="button" class="btn btn-secondary btn-lg" id="opusc_tor">Opusc tor</button>
+
+        </br>
+        </br>
+        <div class="flex-auto">
+            <table class="table table-striped">
+                <caption>Wagony</caption>
+                <thead>
+                <tr>
+                    <th>Nazwa bocznicy</th>
+                    <th>Numer toru</th>
+                    <th>Numer wagonu</th>
+                    <th>Czas wjazdu</th>
+                    <th>Dlugosc</th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="error">
+    </div>
+
+{% endblock %}
+{% block javascript %}
+    <script src="static/js/wagony.js"></script>
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends "home.html" %}
+
+{% block content %}
+    <div class="span9">
+        <input id="url_firma_id" type="hidden" value="{{ NIP }}"/>
+        <div class="section editor">
+            <div class="col-xs-6">
+                <label for="nazwa">nazwa</label>
+                <input class="form-control" id="nazwa" type="text">
+            </div>
+            <div class="col-xs-6">
+                <label for="telefon">telefon</label>
+                <input class="form-control" id="telefon" type="text">
+            </div>
+            <div class="col-xs-6">
+                <label for="NIP">NIP</label>
+                <input class="form-control" id="NIP" type="text">
+            </div>
+            <div class="col-xs-6">
+                <label for="email">email</label>
+                <input class="form-control" id="email" type="text">
+            </div>
+            <div class="col-xs-6">
+                <label for="adres">adres</label>
+                <input class="form-control" id="adres" type="text">
+            </div>
+            <div class="col-xs-6">
+                <label for="miasto">miasto</label>
+                <input class="form-control" id="miasto" type="text">
+            </div>
+            <div class="col-xs-6">
+                <label for="kod_pocztowy">kod_pocztowy</label>
+                <input class="form-control" id="kod_pocztowy" type="text">
+            </div>
+            <div class="col-xs-6">
+                <label for="kraj">kraj</label>
+                <input class="form-control" id="kraj" type="text">
+            </div>
+            <button type="button" class="btn btn-secondary btn-lg" id="create">Utworz</button>
+            <button type="button" class="btn btn-secondary btn-lg" id="user_company">Dodaj firme do uzytkownika</button>
+            <button type="button" class="btn btn-secondary btn-lg" id="wagon_company">Zaktualizuj firmy wagonow</button>
+            <button type="button" class="btn btn-secondary btn-lg" id="delete">Usun</button>
+            <button type="button" class="btn btn-secondary btn-lg" id="reset">Reset</button>
+        </div>
+        <div class="flex-auto">
+            <table class="table table-striped">
+                <caption>Firmy</caption>
+                <thead>
+                <tr>
+                    <th>nazwa</th>
+                    <th>NIP</th>
+                    <th>telefon</th>
+                    <th>email</th>
+                    <th>adres</th>
+                    <th>miast</th>
+                    <th>kraj</th>
+                    <th>kod pocztowy</th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="error">
+    </div>
+{% endblock %}
+{% block javascript %}
+    <script src="static/js/firmy_temp.js"></script>
+{% endblock %}

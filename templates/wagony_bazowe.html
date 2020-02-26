@@ -1,0 +1,59 @@
+{% extends "home.html" %}
+
+{% block content %}
+    <div class="span9">
+        <div class="col-xs-2">
+            <label for="nazwa">nazwa</label>
+            <input class="form-control" id="nazwa" type="text">
+        </div>
+        <div class="col-xs-3">
+            <label for="nr_startowy">numer startowy</label>
+            <input class="form-control" id="nr_startowy" type="text">
+        </div>
+        <div class="col-xs-3">
+            <label for="nr_koncowy">numer koncowy</label>
+            <input class="form-control" id="nr_koncowy" type="text">
+        </div>
+        <div class="col-xs-3">
+            <label for="dlugosc">dlugosc</label>
+            <input class="form-control" id="dlugosc" type="text">
+        </div>
+        <div class="col-xs-4">
+            <label for="wlasciciel">numer</label>
+            <input class="form-control" id="wlasciciel" type="text">
+        </div>
+        <div class="col-xs-4">
+            <label for="typ_wagonu">numer</label>
+            <input class="form-control" id="typ_wagonu" type="text">
+        </div>
+        <button type="button" class="btn btn-secondary btn-lg" id="create">Create</button>
+        <button type="button" class="btn btn-secondary btn-lg" id="update">Update</button>
+        <button type="button" class="btn btn-secondary btn-lg" id="delete">Delete</button>
+        <button type="button" class="btn btn-secondary btn-lg" id="reset">Reset</button>
+        </br>
+        </br>
+        <div class="flex-auto">
+            <table class="table table-striped">
+                <caption>Wagony</caption>
+                <thead>
+                <tr>
+                    <th>Nazwa wagonow</th>
+                    <th>Numer startowy</th>
+                    <th>Numer koncowy</th>
+                    <th>Dlugosc</th>
+                    <th>Wlasciciel</th>
+                    <th>Typ Wagonu</th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="error">
+    </div>
+
+{% endblock %}
+{% block javascript %}
+    <script src="static/js/wagony_bazowe.js"></script>
+{% endblock %}
